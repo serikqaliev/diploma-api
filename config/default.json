@@ -7,6 +7,6 @@
   "smtpPort": 587,
   "smtpUser": "diplomamarking@gmail.com",
   "smtpPassword": "Fpfvfn94",
-  "apiUrl": "http://localhost:5091",
+  "apiUrl": "https://aqueous-fjord-78834.herokuapp.com",
   "clientUrl": "https://react-diploma-akzhol.herokuapp.com"
 }
