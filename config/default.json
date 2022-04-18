@@ -8,5 +8,5 @@
   "smtpUser": "diplomamarking@gmail.com",
   "smtpPassword": "Fpfvfn94",
   "apiUrl": "http://localhost:5091",
-  "clientUrl": "http://localhost:3000"
+  "clientUrl": "https://react-diploma-akzhol.herokuapp.com"
 }
