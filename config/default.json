@@ -1,0 +1,12 @@
+{
+  "serverPort": 5091,
+  "mongoUri": "mongodb+srv://akzhol:Fpfvfn94@cluster0.a7wd3.mongodb.net/diploma?retryWrites=true&w=majority",
+  "jwtAccessSecret": "akzholserikkaliyevzhasulanuly",
+  "jwtRefreshSecret": "akzholrefreshserikkaliyevzhasulanuly",
+  "smtpHost": "smtp.gmail.com",
+  "smtpPort": 587,
+  "smtpUser": "diplomamarking@gmail.com",
+  "smtpPassword": "Fpfvfn94",
+  "apiUrl": "http://localhost:5091",
+  "clientUrl": "http://localhost:3000"
+}
