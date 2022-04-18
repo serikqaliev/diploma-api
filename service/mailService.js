@@ -25,7 +25,7 @@ class MailService {
                 `
                     <div>
                         <h1>Для активации перейдите по ссылке</h1>
-                        <a href="${link}">${link}</a>
+                        <a href="${link}">${process.env.CLIENT_URL || config.get("clientUrl")}</a>
                     </div>
                 `
         })
