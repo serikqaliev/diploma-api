@@ -2,10 +2,13 @@ const jwt = require("jsonwebtoken");
 const tokenModel = require("../models/Token")
 const config = require("config");
 
+const jwtAccessSecret = process.env.JWT_ACCESS_SECRET || config.get("jwtAccessSecret");
+const jwtRefreshSecret = process.env.JWT_REFRESH_SECRET || config.get("jwtRefreshSecret");
+
 class TokenService {
     generateTokens(payload) {
-        const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET || config.get("jwtAccessSecret"), {expiresIn: "1d"});
-        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET || config.get("jwtRefreshSecret"), {expiresIn: "30d"});
+        const accessToken = jwt.sign(payload, jwtAccessSecret, {expiresIn: "1d"});
+        const refreshToken = jwt.sign(payload, jwtRefreshSecret, {expiresIn: "30d"});
         return {
             accessToken,
             refreshToken
@@ -14,7 +17,7 @@ class TokenService {
 
     validateAccessToken(token) {
         try {
-            const userData = jwt.verify(token, process.env.JWT_ACCESS_SECRET || config.get("jwtAccessSecret"));
+            const userData = jwt.verify(token, jwtAccessSecret);
             return userData;
         } catch (e) {
             return null;
@@ -23,7 +26,7 @@ class TokenService {
 
     validateRefreshToken(token) {
         try {
-            const userData = jwt.verify(token, process.env.JWT_REFRESH_SECRET || config.get("jwtRefreshSecret"));
+            const userData = jwt.verify(token, jwtRefreshSecret);
             return userData;
         } catch (e) {
             return null;

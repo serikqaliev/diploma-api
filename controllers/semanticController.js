@@ -65,7 +65,7 @@ class SemanticController {
     async getOne(req, res, next) {
         try {
             const id = req.params.id;
-            console.log(id)
+            console.log("id: " + id)
             const semantic = await SemanticInput.findById(id);
             semantic.processing = true;
             res.json(semantic);
