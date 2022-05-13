@@ -16,7 +16,8 @@ class MailService {
     }
 
     async sendActivationMail(to, link) {
-        const info = await this.transporter.sendMail({
+        console.log(`${to}, ${link}`);
+        await this.transporter.sendMail({
             from: process.env.SMTP_USER || config.get("smtpUser"),
             to,
             subject: "Активация аккаунта на сайте " + process.env.API_URL || config.get("apiUrl"),
@@ -28,17 +29,7 @@ class MailService {
                         <a href="${link}">${process.env.CLIENT_URL || config.get("clientUrl")}</a>
                     </div>
                 `
-        });
-
-        this.transporter.sendMail(info, (err, info) => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log(info);
-            }
-        });
-
-        console.log("Message sent: %s", info.messageId);
+        })
     }
 }
 
