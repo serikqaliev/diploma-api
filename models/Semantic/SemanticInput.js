@@ -1,5 +1,5 @@
 const {Schema, model, mongoose} = require("mongoose");
-const autoIncrementSemantic = require("mongoose-sequence")(mongoose);
+const autoIncrementSemanticInput = require("mongoose-sequence")(mongoose);
 
 const semanticInputSchema = new Schema({
     sentence: {type: String, required: true},
@@ -7,5 +7,5 @@ const semanticInputSchema = new Schema({
     processed: {type: Boolean, default: false},
 }, {_id: false});
 
-semanticInputSchema.plugin(autoIncrementSemantic, {id: 'semantic_input_id', inc_field: '_id'});
+semanticInputSchema.plugin(autoIncrementSemanticInput, {id: 'semantic_input_id', inc_field: '_id'});
 module.exports = model("SemanticInput", semanticInputSchema);
