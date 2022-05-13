@@ -30,6 +30,7 @@ class MailService {
                     </div>
                 `
         })
+        console.log('mail sended ${to}');
     }
 }
 
